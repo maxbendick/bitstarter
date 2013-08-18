@@ -3,7 +3,14 @@ var app = express();
 app.use(express.logger());
 
 app.get('/', function(request, response) {
-  response.send('Hello World! This is my first web-app');
+
+  fs.readFileSync('inxdex.html', function(err, data){
+    if (err) throw err;
+    console.log(data);
+  });
+//^^attempts to read file
+ 
+  response.send(data);
 });
 
 var port = process.env.PORT || 5000;
