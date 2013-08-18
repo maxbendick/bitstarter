@@ -4,11 +4,15 @@ app.use(express.logger());
 
 app.get('/', function(request, response) {
 
+
+//attempts to read file
+  var fs = require('fs');
   fs.readFileSync('inxdex.html', function(err, data){
     if (err) throw err;
     console.log(data);
   });
 //^^attempts to read file
+
  
   response.send(data);
 });
