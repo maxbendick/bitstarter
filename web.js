@@ -1,19 +1,17 @@
 var express = require('express');
-var app = express();
-app.use(express.logger());
 
-app.get('/', function(request, response) {
+
 
 
 //attempts to read file
-  var fs = require('fs');
-  fs.readFileSync('inxdex.html', function(err, data){
-    if (err) throw err;
-    console.log(data);
-  });
+var fs = require('fs');
+fs.readFileSync('inxdex.html', "utf-8");
 //^^attempts to read file
 
- 
+
+var app = express();
+app.use(express.logger());
+app.get('/', function(request, response) { 
   response.send(data);
 });
 
